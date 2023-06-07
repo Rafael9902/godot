@@ -1,0 +1,8 @@
+res://hud/HUD.gd
+res://hud/hud.tscn
+res://labels/hud_label_settings.tres
+res://main.tscn
+res://main.gd
+res://player/player.gd
+res://coin/coin.tscn
+res://coin/coin.gd

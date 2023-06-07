@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2we0wq8lbgyy"]
+
+[ext_resource type="Script" path="res://hud/HUD.gd" id="1_yhy6d"]
+[ext_resource type="LabelSettings" uid="uid://cykl2ox7c8t3h" path="res://labels/hud_label_settings.tres" id="2_jamv1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_yhy6d")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="score_label" type="Label" parent="Menu"]
+layout_mode = 0
+offset_right = 94.0
+offset_bottom = 118.0
+text = "0"
+label_settings = ExtResource("2_jamv1")
+
+[node name="time_left_label" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 5.0
+offset_right = 473.0
+offset_bottom = 123.0
+text = "0"
+label_settings = ExtResource("2_jamv1")
+
+[node name="home_label" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 245.0
+offset_right = 136.0
+offset_bottom = 318.0
+grow_horizontal = 2
+text = "Pursues The Money"
+label_settings = ExtResource("2_jamv1")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5
+offset_top = -20.0
+offset_right = 99.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

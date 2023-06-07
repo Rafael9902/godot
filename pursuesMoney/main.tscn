@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cibyd0dvd7evg"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_mn0b3"]
+[ext_resource type="PackedScene" uid="uid://bjei75appra04" path="res://player/player.tscn" id="2_a1aaj"]
+[ext_resource type="Texture2D" uid="uid://hgv25ktft4yc" path="res://assets/grass.png" id="3_0eo2l"]
+[ext_resource type="PackedScene" uid="uid://b2we0wq8lbgyy" path="res://hud/hud.tscn" id="4_vrje2"]
+[ext_resource type="AudioStream" uid="uid://efqv7yinpt46" path="res://assets/audio/Coin.wav" id="5_r3fx2"]
+[ext_resource type="AudioStream" uid="uid://b2enrgrj4uodm" path="res://assets/audio/Level.wav" id="6_drrqq"]
+[ext_resource type="AudioStream" uid="uid://b0kgpiv5tkttd" path="res://assets/audio/Hit.wav" id="7_imvbj"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_mn0b3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_0eo2l")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_a1aaj")]
+position = Vector2(236, 311)
+scale = Vector2(3, 3)
+velocity = 300
+
+[node name="CoinContainer" type="Node2D" parent="."]
+
+[node name="InitialMarker2D" type="Marker2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("4_vrje2")]
+
+[node name="CoinStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_r3fx2")
+
+[node name="HomeStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_drrqq")
+
+[node name="DieStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_imvbj")
+
+[connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
+[connection signal="pickup" from="Player" to="." method="_on_player_pickup"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
