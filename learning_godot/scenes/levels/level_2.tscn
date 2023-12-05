@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drwbumojfd2rx"]
+
+[ext_resource type="Texture2D" uid="uid://dwcyyu8crqnw0" path="res://assets/dark_knight.png" id="1_l4src"]
+
+[node name="Level_2" type="Node2D"]
+
+[node name="Dark Knight" type="Sprite2D" parent="."]
+position = Vector2(516, 366)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_l4src")

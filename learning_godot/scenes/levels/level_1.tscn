@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://0gd3h5dvqeeb"]
+
+[ext_resource type="Texture2D" uid="uid://dff8f776r23ma" path="res://icon.svg" id="1_of5nj"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(102, 135)
+texture = ExtResource("1_of5nj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(396, 226)
+texture = ExtResource("1_of5nj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(396, 226)
+texture = ExtResource("1_of5nj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(816.952, 464.607)
+rotation = -3.17699
+scale = Vector2(4.8035, 1.30051)
+texture = ExtResource("1_of5nj")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(579, 186.5)
+scale = Vector2(3.85938, 0.382813)
+texture = ExtResource("1_of5nj")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(136, 404)
+texture = ExtResource("1_of5nj")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(779, 215)
+texture = ExtResource("1_of5nj")
