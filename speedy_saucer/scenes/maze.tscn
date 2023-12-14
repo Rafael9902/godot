@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://tj1a88tix5jn"]
+
+[ext_resource type="Texture2D" uid="uid://bce0soveybfgp" path="res://assets/Backgrounds/blue.png" id="1_q1x0b"]
+
+[node name="Maze" type="Area2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-96, -123, -98, 73, -3, 182, -2, 372, 250, 369, 433, 236, 415, 63, 618, -55, 613, -299, 697, -460, 264, -454, 514, -300, 524, -105, 332, 6, 334, 208, 220, 295, 65, 302, 65, 181, 80, 60, -22, 31, -22, -120, 176, -114, 178, -280, -280, -282, -283, -137)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_q1x0b")
+polygon = PackedVector2Array(-96, -123, -98, 73, -3, 182, -2, 372, 250, 369, 433, 236, 415, 63, 618, -55, 613, -299, 697, -460, 264, -454, 514, -300, 524, -105, 332, 6, 334, 208, 220, 295, 65, 302, 65, 181, 80, 60, -22, 31, -22, -120, 176, -114, 178, -280, -280, -282, -283, -137)
