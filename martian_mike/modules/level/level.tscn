@@ -1,27 +1,67 @@
-[gd_scene load_steps=5 format=3 uid="uid://2wypyaylcp8d"]
+[gd_scene load_steps=9 format=3 uid="uid://2wypyaylcp8d"]
 
 [ext_resource type="Script" path="res://modules/level/level.gd" id="1_8qrde"]
 [ext_resource type="PackedScene" uid="uid://drlq84inlxr5a" path="res://modules/player/player.tscn" id="2_yalpo"]
 [ext_resource type="Texture2D" uid="uid://bov8i36lrkdu" path="res://icon.svg" id="3_qi3xb"]
+[ext_resource type="PackedScene" uid="uid://cvlphl6svx4pk" path="res://modules/traps/saw/saw.tscn" id="4_o2b5b"]
+[ext_resource type="PackedScene" uid="uid://ctkwu8rglv2by" path="res://modules/jump_pad/jump_pad.tscn" id="4_p1152"]
+[ext_resource type="PackedScene" uid="uid://dtrg3x57d8tu5" path="res://modules/traps/spike_ball/spike_ball.tscn" id="5_ggr4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufgq3"]
 size = Vector2(484, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m58m6"]
+size = Vector2(1011, 25)
+
 [node name="Level" type="Node2D"]
+position = Vector2(9, -172)
 script = ExtResource("1_8qrde")
 
 [node name="Player" parent="." instance=ExtResource("2_yalpo")]
-position = Vector2(2, 36)
+position = Vector2(2, 126)
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(1, 24)
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(238, 183)
+position = Vector2(234, 122)
 scale = Vector2(3.73438, 0.3125)
 texture = ExtResource("3_qi3xb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(240, 186)
+position = Vector2(236, 124)
 shape = SubResource("RectangleShape2D_ufgq3")
+
+[node name="DeathZone" type="Area2D" parent="."]
+position = Vector2(-3, 11)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone"]
+position = Vector2(247.5, 255)
+shape = SubResource("RectangleShape2D_m58m6")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(16, 91)
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Saw" parent="Traps" instance=ExtResource("4_o2b5b")]
+position = Vector2(287, 125)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("5_ggr4r")]
+position = Vector2(315, 117)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="JumpPad" parent="Objects" instance=ExtResource("4_p1152")]
+position = Vector2(140, 112)
+
+[node name="JumpPad2" parent="Objects" instance=ExtResource("4_p1152")]
+position = Vector2(182, 112)
+jump_force = 300
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="touched_player" from="Traps/Saw" to="." method="_on_saw_touched_player"]
+[connection signal="touched_player" from="Traps/SpikeBall" to="." method="_on_spike_ball_touched_player"]

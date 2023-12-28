@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var speed = 200
 @export var jump_force: int = 200
 @export var gravity: int = 400
@@ -26,9 +28,8 @@ func horizontal_movement():
 func vertical_movement():
 	velocity.y = clampf(velocity.y, -500, 500)
 
-	if Input.is_action_just_pressed("jump"): #and is_on_floor():
-		velocity.y = -jump_force
-		
+	if Input.is_action_just_pressed("jump"):
+		jump(jump_force) #and is_on_floor():
 
 func update_animation(direction: int):
 	if is_on_floor():
@@ -38,3 +39,8 @@ func update_animation(direction: int):
 	if not is_on_floor():
 		if(velocity.y < 0): animated_sprite.play("jump")
 		if(velocity.y > 0): animated_sprite.play("fall")
+		
+
+
+func jump(force: float):
+	velocity.y = -force
