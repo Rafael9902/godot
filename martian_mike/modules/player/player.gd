@@ -7,14 +7,17 @@ class_name Player
 @export var gravity: int = 400
 @onready var animated_sprite = $AnimatedSprite2D
 
-func _physics_process(delta):
+var active = true
+
+func _physics_process(delta):	
 	# Gravity
 	if not is_on_floor(): velocity.y += gravity * delta
 	
-	horizontal_movement()
-	vertical_movement()
+	if active == true:			
+		horizontal_movement()
+		vertical_movement()
 
-	move_and_slide()
+		move_and_slide()
 	
 func horizontal_movement():
 	var direction: float = Input.get_axis("move_left", "move_right")

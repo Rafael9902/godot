@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://djqtvsvsjd5tg"]
+
+[ext_resource type="FontFile" uid="uid://ce85lx7m6w5hm" path="res://assets/fonts/Kenney Pixel Square.ttf" id="1_2lol7"]
+[ext_resource type="Script" path="res://modules/win_screen/win_screen.gd" id="1_bwa2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jru4q"]
+font = ExtResource("1_2lol7")
+font_size = 48
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WinScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bwa2y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.490196)
+
+[node name="Win" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.0
+offset_top = -112.0
+offset_right = 111.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_jru4q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -21.0
+offset_right = 88.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_2lol7")
+text = "Thanks For Playing..."
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
