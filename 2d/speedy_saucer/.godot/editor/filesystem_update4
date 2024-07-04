@@ -1,0 +1,5 @@
+res://scenes/levels/level.gd
+res://scenes/levels/level_1.tscn
+res://scenes/player.tscn
+res://scenes/maze.tscn
+res://scenes/maze2.tscn
