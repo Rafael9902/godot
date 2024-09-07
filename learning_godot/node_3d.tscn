@@ -11,6 +11,6 @@ transform = Transform3D(-0.999868, -0.00661927, -0.0148549, 0.0071038, -0.999436
 mesh = SubResource("BoxMesh_qhxv3")
 
 [node name="Circle" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.6781, -0.72097, -0.142769, 0.0134016, 0.18209, -0.983191, 0.734848, -0.668615, -0.113813, -0.412144, 0.0702375, 2.10663)
+transform = Transform3D(-0.6781, -0.72097, -0.142769, 0.0134016, 0.18209, -0.983191, 0.734848, -0.668615, -0.113813, -0.469571, 1.25253, 1.50294)
 mesh = SubResource("SphereMesh_ijs1k")
 skeleton = NodePath("../MeshInstance3D")
